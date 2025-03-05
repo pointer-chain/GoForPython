@@ -1,0 +1,33 @@
+GET https://etax.heilongjiang.chinatax.gov.cn/sys/wbcs/api/Forward?swsx=sbf25 HTTP/1.1
+Host: etax.heilongjiang.chinatax.gov.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Sec-Fetch-Site: same-origin
+Referer: https://etax.heilongjiang.chinatax.gov.cn/login/xdjsbfzq.jsp
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: SF_cookie_23=71979549; SF_cookie_24=70829561; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221951cb6528d4d5-025242b8b69b372-2045055d-2073600-1951cb6528ea08%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMTk1MWNiNjUyOGQ0ZDUtMDI1MjQyYjhiNjliMzcyLTIwNDUwNTVkLTIwNzM2MDAtMTk1MWNiNjUyOGVhMDgifQ%3D%3D%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%2C%22%24device_id%22%3A%221951cb6528d4d5-025242b8b69b372-2045055d-2073600-1951cb6528ea08%22%7D; sajssdk_2015_cross_new_user=1; oauth2_referer=etax.heilongjiang.chinatax.gov.cn; tpass_j36c2335ff6948fya33ffjaf49p5c9d4=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc5MTkyNTc0NTc0YjQwZDZiN2E5ZDZjZjAzMDY2ZDg2In0.EftiYXs8Om-fNbgkyRYc62qmfdZfNNZ2qCBpLsiiIkzYqbo0ucH0R1IjJPORuy2nmZAV6vUgxPQPEgLCSdjMEw; JSESSIONID=PyIcmn_wTyml2id85DMagTFEjjLKBejnktS66rHhlVx5ReZqG4EN!-1272911718!-425399052; BIGipServerpool_wwmhwz=1695813804.22811.0000; znhd-ssotoken=fb94b61b714f4abb803b5ee5758abebe; ZNHD_SECURITY_CHECK_TOKEN=5d1222ce19624352ad9cfb27d855e2ba
+
+
+HTTP/1.1 200 OK
+Date: Wed, 19 Feb 2025 05:08:46 GMT
+Content-Type: text/html;charset=utf-8
+Set-Cookie: SF_cookie_23=71979549; secure
+Content-Length: 486
+
+<!DOCTYPE HTML
+<HTML>
+ <HEAD><TITLE></TITLE></HEAD>
+ <BODY>
+<form name="submitForm" action="http://222.171.162.133:8707/sys/xtgl/Cl/login?param=QMM3aVHIGnZSxLHZyYoM3%2FraZ57TmFyyoeFjrpYrynYBib0eazKJzMReDRTFTW1y8oyMJuisUzpl%0AEOCU3c%2FCLaPj3mqrgJw6vZ%2FX4a6HYYPLpypha3n0ilfWsmS4n9UddFaKHt7Vo74NWICvzy1DJuAq%0A2jS%2BKgKicF%2FXbo156TqHF9OxNdZhJHIRwbQC2mSN1s7i1WN7BHJcQnHVEWfk3Q%3D%3D" method="post">
+</form>
+<script>window.document.submitForm.submit();</script>
+ </BODY>
+</HTML>
+
+
+SF_cookie_23=71979549; SF_cookie_24=70829561; tpass_j36c2335ff6948fya33ffjaf49p5c9d4=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImU5YWZhYjQ4MzE3MDRiZGVhMGU2MjI0YTMzNWY4NzljIn0.DEvk_cmz4emV2PEMhXaDieTv8l2KIzlxxdjHRiUddX4J-qIFFYmVyXWBFIJu2u0Iy_nvzBlNChzFbckioG4B6A; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221951cff5cf52f8-0e8e2b67741871-2045055d-2073600-1951cff5cf68ad%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMTk1MWNmZjVjZjUyZjgtMGU4ZTJiNjc3NDE4NzEtMjA0NTA1NWQtMjA3MzYwMC0xOTUxY2ZmNWNmNjhhZCJ9%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%2C%22%24device_id%22%3A%221951cff5cf52f8-0e8e2b67741871-2045055d-2073600-1951cff5cf68ad%22%7D; sajssdk_2015_cross_new_user=1; oauth2_referer=etax.heilongjiang.chinatax.gov.cn; znhd-ssotoken=6e697e5c235b4d7296d9631c0b3df968; ZNHD_SECURITY_CHECK_TOKEN=8110e2f76c03459194d22c407bed9e58; JSESSIONID=h7Ec4tGopLc4IaUhu1Z_-vjdFveMCmZ9ZbQUwveMX33AUwTwqizg!-730407869!1231991957; BIGipServerpool_wwmhwz=1695813804.23067.0000
