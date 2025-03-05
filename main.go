@@ -60,11 +60,10 @@ func PostUrlWithProxy(cMethod, cGetUrl, cHeaders, cProxyUrl, cDisableRedirect, c
 	// 转换C字符串到Go字符串
 	method := strings.ToUpper(C.GoString(cMethod))
 	getUrl := C.GoString(cGetUrl)
-	cookie := C.GoString(cHeaders)
+	header := C.GoString(cHeaders)
 	proxyUrl := C.GoString(cProxyUrl)
 	disableRedirect := C.GoString(cDisableRedirect) == "true"
 	bodyData := []byte(C.GoString(cBody))
-	bodyReader := bytes.NewReader(bodyData)
 	// HTTP方法白名单验证
 	validMethods := map[string]bool{
 		"GET":    true,  // 允许GET
@@ -79,21 +78,22 @@ func PostUrlWithProxy(cMethod, cGetUrl, cHeaders, cProxyUrl, cDisableRedirect, c
 	}
 	// 解析headers JSON
 	var headers map[string]string
-	if err := json.Unmarshal([]byte(cookie), &headers); err != nil {
+	if err := json.Unmarshal([]byte(header), &headers); err != nil {
 		return resultToC(nil, fmt.Errorf("headers参数解析失败: %v", err))
+	}
+	var bodyReader io.Reader
+	if contentType, ok := headers["Content-Type"]; ok && contentType == "application/x-www-form-urlencoded" {
+		formData, err := url.ParseQuery(string(bodyData))
+		if err != nil {
+			return resultToC(nil, fmt.Errorf("表单数据解析失败: %v", err))
+		}
+		bodyReader = strings.NewReader(formData.Encode())
+	} else {
+		bodyReader = bytes.NewReader(bodyData)
 	}
 	// 在解析headers后增加必要字段校验
 	if _, ok := headers["User-Agent"]; !ok {
 		return resultToC(nil, fmt.Errorf("必须提供User-Agent请求头"))
-	}
-	// 防止意外泄露(敏感头字段)
-	var sensitiveHeaders = map[string]bool{
-		"Authorization":       true,
-		"Cookie":              true,
-		"Proxy-Authorization": true,
-	}
-	for h := range sensitiveHeaders {
-		delete(headers, h)
 	}
 	// 创建HTTP请求对象
 	req, err := http.NewRequest(method, getUrl, bodyReader)
