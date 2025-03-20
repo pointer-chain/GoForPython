@@ -7,6 +7,7 @@ package main
 import "C" // 必须单独导入C包
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -117,10 +118,16 @@ func PostUrlWithProxy(cMethod, cGetUrl, cHeaders, cProxyUrl, cDisableRedirect, c
 		// 创建带代理的传输层
 		transport = &http.Transport{
 			Proxy: http.ProxyURL(proxyURL),
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true, // 忽略证书验证
+			},
 		}
 	} else {
 		// 使用默认传输层并克隆配置
 		transport = http.DefaultTransport.(*http.Transport).Clone()
+		transport.TLSClientConfig = &tls.Config{
+			InsecureSkipVerify: true, // 忽略证书验证
+		}
 	}
 	// 创建HTTP客户端并禁止重定向
 	client := &http.Client{
