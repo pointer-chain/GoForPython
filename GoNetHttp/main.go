@@ -1,5 +1,5 @@
 // main.go
-package GoNeetHttp
+package VersionPack5
 
 /*
 #include <stdlib.h> // 引入C标准库，用于内存管理
@@ -165,6 +165,7 @@ func PostUrlWithProxy(cMethod, cGetUrl, cHeaders, cProxyUrl, cDisableRedirect, c
 		"content_type":   res.Header.Get("Content-Type"), // 内容类型
 		"date":           res.Header.Get("Date"),         // 响应日期
 		"body":           string(bodyBytes),              // 响应体内容
+		"byte":           bodyBytes,                      // 字节数组
 		"redirects":      getRedirectHistory(res),        // 重定向历史
 	}
 
@@ -301,13 +302,4 @@ func isNetworkError(err error) bool {
 }
 
 // main 空主函数（CGO编译要求）
-func main() {
-	method := C.CString("POST")
-	u := C.CString("https://etax.heilongjiang.chinatax.gov.cn/reportServlet?action=11")
-	pro := C.CString("http://117.89.180.118:30003")
-	headers := C.CString(`{"Cache-Control": "max-age=0", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "zh-CN,zh;q=0.9", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; X64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36", "Content-Type": "application/x-www-form-urlencoded", "Referer": "https://etax.heilongjiang.chinatax.gov.cn/public/xxcx/sbf_wszmkj.jsp", "Origin": "https://etax.heilongjiang.chinatax.gov.cn", "Upgrade-Insecure-Requests": "1", "Connection": "keep-alive", "Host": "etax.heilongjiang.chinatax.gov.cn", "Cookie": "JSESSIONID=LBWzICHZ3Z7k33tubAYJqbup9SsMiJrCrHfiXsrOyk3V3lj4L41w!1231991957!-255282337;BIGipServerpool_wwmhwz=1712591020.23323.0000;tpass_j36c2335ff6948fya33ffjaf49p5c9d4=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImJkYmJhMjEzYjFlYTQzYjE4MTM4ZjUwOWJkOTA4ZWM1In0.xNKJ2lqY9mXLvqPvgNzU0xq1zeJvatq5qJq9q6yjPBiQcnWSiMIgKz7tR_XFAeswabPX3ZOkyc2cY50ntqNSmA;tpass_sse3d26fp9x94cxebc7c4674sdx25cef=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjYwOGNjZjU4ZDEzZDQ4NjZiMDE4YmI3NzM3Y2EzYmNkIn0.FoXAr1_hnRSwSfMz4j1sWRd9FBSJQI6osN2wMQEFC9nIR8tW1zP6SzuAtR8ojf6_3hwo0TCrMag0doTCvjF05g;SF_cookie_23=71979549;tpass_sse3d26fp9x94cxebc7c4674sdx25cef=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjYwOGNjZjU4ZDEzZDQ4NjZiMDE4YmI3NzM3Y2EzYmNkIn0.FoXAr1_hnRSwSfMz4j1sWRd9FBSJQI6osN2wMQEFC9nIR8tW1zP6SzuAtR8ojf6_3hwo0TCrMag0doTCvjF05g;tpass_j36c2335ff6948fya33ffjaf49p5c9d4=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImJkYmJhMjEzYjFlYTQzYjE4MTM4ZjUwOWJkOTA4ZWM1In0.xNKJ2lqY9mXLvqPvgNzU0xq1zeJvatq5qJq9q6yjPBiQcnWSiMIgKz7tR_XFAeswabPX3ZOkyc2cY50ntqNSmA;"}`)
-	data := C.CString(`'fileName=wszmkj_sbf.raq&srcType=file&cachedId=A_330940&pageUrl=%2Fpublic%2Fxxcx%2Fsbf_wszmkj_jg.jsp%3Fsqq%3D2024-03-01%26sqz%3D2024-03-31%26reportParamsId%3D428971&backAndRefresh=%2Fpublic%2Fxxcx%2Fsbf_wszmkj_jgdy.jsp%3Fbxh%3D30105480&promptAfterSave=no&saveDataByListener=no&inputExceptionPage=%2FmyErrorPage.jsp&keyRepeatError=no&data=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22utf-8%22%3F%3E%3Cdata%3E%3Cmodify%3E%3Cr%3E%3Cc+name%3D%22A3%22+value%3D%22%22%2F%3E%3Cc+name%3D%22B3%22+value%3D%22%22%2F%3E%3Cc+name%3D%22C3%22+value%3D%221%22%2F%3E%3Cc+name%3D%22D3%22+value%3D%22423026240300015034%22%2F%3E%3Cc+name%3D%22E3%22+value%3D%22%E5%A4%B1%E4%B8%9A%E4%BF%9D%E9%99%A9%E8%B4%B9%22%2F%3E%3Cc+name%3D%22F3%22+value%3D%22%E5%A4%B1%E4%B8%9A%E4%BF%9D%E9%99%A9%28%E4%B8%AA%E4%BA%BA%E7%BC%B4%E7%BA%B3%29%22%2F%3E%3Cc+name%3D%22G3%22+value%3D%222024-03-01%22%2F%3E%3Cc+name%3D%22H3%22+value%3D%222024-03-31%22%2F%3E%3Cc+name%3D%22I3%22+value%3D%222024-03-08%22%2F%3E%3Cc+name%3D%22J3%22+value%3D%2242.06%22%2F%3E%3Cc+name%3D%22K3%22+value%3D%22BDA0610222%22%2F%3E%3Cc+name%3D%22L3%22+value%3D%2223D8AEE73EBBCB8CB2BC653FECA95B07%22%2F%3E%3Cc+name%3D%22M3%22+value%3D%22%22%2F%3E%3Cc+name%3D%22N3%22+value%3D%2210202%22%2F%3E%3Cc+name%3D%22O3%22+value%3D%2210%22%2F%3E%3Cc+name%3D%22P3%22+value%3D%222024-03-08%22%2F%3E%3Cc+name%3D%22Q3%22+value%3D%22102020102%22%2F%3E%3Cc+name%3D%22R3%22+value%3D%2212302814000%22%2F%3E%3Cc+name%3D%22S3%22+value%3D%226CF1089CEC5CF22628CD5980AD13C4BE%22%2F%3E%3Cc+name%3D%22T3%22+value%3D%2251%22%2F%3E%3Cc+name%3D%22U3%22+value%3D%222024-03-08%22%2F%3E%3Cc+name%3D%22V3%22+value%3D%2212300gdfwt0%22%2F%3E%3Cc+name%3D%22W3%22+value%3D%221230281004%22%2F%3E%3Cc+name%3D%22X3%22+value%3D%2223028123028118107356%22%2F%3E%3Cc+name%3D%22Y3%22+value%3D%2223028111210%22%2F%3E%3Cc+name%3D%22Z3%22+value%3D%2212302810000%22%2F%3E%3C%2Fr%3E%3C%2Fmodify%3E%3C%2Fdata%3E&params=sqz%3D2024-03-31%3Bdjxh%3D10112302010000020064%3Bbxh%3D30105480%3Bsqq%3D2024-03-01'`)
-	res := PostUrlWithProxy(method, u, headers, pro, C.CString("true"), data)
-	goResult := C.GoString(res)
-	fmt.Println(goResult)
-}
+func main() {}
