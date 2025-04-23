@@ -1,5 +1,5 @@
 // main.go
-package VersionPack5
+package main
 
 /*
 #include <stdlib.h> // 引入C标准库，用于内存管理
