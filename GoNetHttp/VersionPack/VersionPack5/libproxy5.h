@@ -19,7 +19,7 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
-#line 3 "main.go"
+#line 4 "main.go"
 
 #include <stdlib.h> // 引入C标准库，用于内存管理
 
@@ -83,7 +83,7 @@ extern "C" {
 // FreeCString 释放C语言字符串内存
 // 参数 cs: 需要释放的C字符串指针
 //
-extern __declspec(dllexport) void FreeCString(char* cs);
+extern void FreeCString(char* cs);
 
 // PostUrlWithProxy 通过代理发起HTTP请求的C导出函数
 // 参数:
@@ -104,7 +104,7 @@ extern __declspec(dllexport) void FreeCString(char* cs);
 //  3. 限制响应体最大读取5MB
 //  4. 白名单控制HTTP方法
 //
-extern __declspec(dllexport) char* PostUrlWithProxy(char* cMethod, char* cGetUrl, char* cHeaders, char* cProxyUrl, char* cDisableRedirect, char* cBody);
+extern char* PostUrlWithProxy(char* cMethod, char* cGetUrl, char* cHeaders, char* cProxyUrl, char* cDisableRedirect, char* cBody);
 
 #ifdef __cplusplus
 }
